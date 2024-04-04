@@ -5,13 +5,15 @@ class MyContainer extends StatelessWidget {
   final double? height;
   final Decoration decoration;
   final Widget? widget;
+  final Clip clipBehavior;
 
   const MyContainer({
     super.key,
     this.width = double.infinity,
     this.height,
     required this.decoration,
-    this.widget
+    this.widget,
+    required this.clipBehavior,
   });
 
   @override
@@ -20,6 +22,7 @@ class MyContainer extends StatelessWidget {
       width: width,
       height: height,
       decoration: decoration,
+      clipBehavior: clipBehavior,
       child: widget,
     );
   }

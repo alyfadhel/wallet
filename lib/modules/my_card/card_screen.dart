@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:wallet/modules/auth_page/auth_screen.dart';
 import 'package:wallet/widgets/my_container.dart';
@@ -26,7 +27,7 @@ class CardScreen extends StatelessWidget {
         ),
       ),
       body: ListWheelScrollView(
-        itemExtent: 250,
+        itemExtent: 275,
         controller: controller,
         children: List.generate(
           5,
@@ -65,6 +66,7 @@ Widget buildCardList(context, int index) {
               ),
               color: chooseColor[index],
             ),
+            clipBehavior: Clip.none,
             widget: Padding(
               padding: const EdgeInsets.all(20.0),
               child: Column(
@@ -107,28 +109,66 @@ Widget buildCardList(context, int index) {
                   const SizedBox(
                     height: 50.0,
                   ),
-                  Align(
+                  Stack(
                     alignment: AlignmentDirectional.topEnd,
-                    child: Text(
-                      '05/12',
-                      style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                            color: Colors.white,
+                    children: [
+                      Align(
+                        alignment: AlignmentDirectional.bottomEnd,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            '05/12',
+                            style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                                  color: Colors.white,
+                                ),
                           ),
-                    ),
+                        ),
+                      ),
+                      Container(
+                        alignment: Alignment.topCenter,
+                        height: 50,
+                        width: 100,
+                        decoration: BoxDecoration(
+                          borderRadius: const BorderRadius.only(
+                            topLeft: Radius.circular(500),
+                            topRight: Radius.circular(100),
+                            bottomLeft: Radius.circular(10),
+                            bottomRight: Radius.circular(50),
+                          ),
+                          gradient: LinearGradient(
+                            begin: FractionalOffset.topLeft,
+                            end: FractionalOffset.bottomRight,
+                            colors: [
+                              Colors.white.withOpacity(.3),
+                              Colors.white.withOpacity(.3)
+                            ],
+                          ),
+                        ),
+                      )
+                    ],
                   ),
                 ],
               ),
             ),
           ),
-          MyContainer(
-            width: 125,
-            height: 50,
+          Container(
+            alignment: Alignment.topCenter,
+            height: 80,
+            width: 150,
             decoration: BoxDecoration(
-              color: Colors.grey.withOpacity(
-                .5,
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(10),
+                topRight: Radius.circular(50),
+                bottomLeft: Radius.circular(100),
+                bottomRight: Radius.circular(500),
               ),
-              borderRadius: BorderRadius.circular(
-                50,
+              gradient: LinearGradient(
+                begin: FractionalOffset.topLeft,
+                end: FractionalOffset.fromOffsetAndRect(Offset(50, 20), Rect.largest),
+                colors: [
+                  Colors.white.withOpacity(.3),
+                  Colors.white.withOpacity(.3),
+                ],
               ),
             ),
           ),

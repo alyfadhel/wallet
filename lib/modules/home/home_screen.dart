@@ -60,6 +60,7 @@ class HomeScreen extends StatelessWidget {
                           10.0,
                         ),
                       ),
+                      clipBehavior: Clip.none,
                       widget: Padding(
                         padding: const EdgeInsets.symmetric(
                           vertical: 20.0,
@@ -196,6 +197,7 @@ class HomeScreen extends StatelessWidget {
                           10.0,
                         ),
                       ),
+                      clipBehavior: Clip.none,
                       widget: Padding(
                         padding: const EdgeInsets.symmetric(
                           vertical: 20.0,
